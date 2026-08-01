@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Game details — RetroCart</title>
+<meta name="description" content="Game details, condition and what's included.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-text">RETRO<span>CART</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a class="nav-tab" href="index.html">Catalog</a>
+      <a class="nav-tab" href="saved.html">Saved</a>
+      <a class="nav-tab" href="about.html">About</a>
+      <a class="nav-tab" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="padding-top:40px;">
+    <div class="container">
+      <a href="index.html" class="back-link">&larr; Back to catalog</a>
+
+      <div id="game-content">
+        <!-- Rendered by js/game.js -->
+        <p class="text-mute">Loading game details...</p>
+      </div>
+
+      <div id="not-found" class="empty-state" hidden>
+        <img src="images/empty-state.jpg" alt="A single cartridge floating alone in space">
+        <h3>Cartridge not found</h3>
+        <p>We couldn't find that listing — it may have sold or the link is out of date.</p>
+        <a href="index.html" class="btn btn-primary" style="margin-top:18px; display:inline-flex;">Back to catalog</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>RetroCart is an independent collector project. Not affiliated with or endorsed by Sega.</p>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="saved.html">Saved list</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/game.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

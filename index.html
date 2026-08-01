@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RetroCart — Sega Mega Drive & Retro Games</title>
+<meta name="description" content="Browse a hand-checked catalog of Mega Drive and retro game cartridges. Search by title, console, genre and condition, and enquire directly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-text">RETRO<span>CART</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a class="nav-tab active" href="index.html">Catalog</a>
+      <a class="nav-tab" href="saved.html">Saved</a>
+      <a class="nav-tab" href="about.html">About</a>
+      <a class="nav-tab" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">Now loading: Mega Drive collection</span>
+      <h1>Insert cartridge<br>to <span class="accent">continue</span>.</h1>
+      <p class="lead">A hand-checked catalog of Sega Mega Drive cartridges — every cart tested, every condition noted honestly. Expanding to more retro consoles soon.</p>
+      <form class="cart-search" id="hero-search-form" role="search">
+        <label for="hero-search" class="sr-only">Search the catalog</label>
+        <input type="text" id="hero-search" placeholder="Search a title... e.g. Sonic, Streets of Rage" autocomplete="off">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section class="section" id="catalog">
+    <div class="container">
+      <div class="section-head">
+        <h2>Browse the catalog</h2>
+        <span class="text-mute" style="font-family: var(--font-mono); font-size:0.8rem;">Updated as stock changes</span>
+      </div>
+
+      <div class="filter-bar">
+        <label for="filter-console" class="sr-only">Filter by console</label>
+        <select id="filter-console">
+          <option value="">All consoles</option>
+        </select>
+
+        <label for="filter-genre" class="sr-only">Filter by genre</label>
+        <select id="filter-genre">
+          <option value="">All genres</option>
+        </select>
+
+        <label for="filter-condition" class="sr-only">Filter by condition</label>
+        <select id="filter-condition">
+          <option value="">Any condition</option>
+        </select>
+
+        <label for="filter-search" class="sr-only">Search</label>
+        <input type="text" id="filter-search" placeholder="Search title...">
+
+        <span class="result-count" id="result-count"></span>
+      </div>
+
+      <div id="cart-grid" class="cart-grid" aria-live="polite">
+        <!-- Rendered by js/main.js -->
+      </div>
+
+      <div id="empty-state" class="empty-state" hidden>
+        <img src="images/empty-state.jpg" alt="A single cartridge floating alone in space">
+        <h3>Nothing on the shelf</h3>
+        <p>No games match those filters. Try clearing a filter or searching a different title.</p>
+        <button class="btn btn-ghost" id="clear-filters-btn" style="margin-top:18px;">Clear filters</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>RetroCart is an independent collector project. Not affiliated with or endorsed by Sega.</p>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="saved.html">Saved list</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

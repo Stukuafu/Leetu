@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — RetroCart</title>
+<meta name="description" content="Enquire about a cartridge or ask a general question.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-text">RETRO<span>CART</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav">
+      <a class="nav-tab" href="index.html">Catalog</a>
+      <a class="nav-tab" href="saved.html">Saved</a>
+      <a class="nav-tab" href="about.html">About</a>
+      <a class="nav-tab active" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="padding-top:56px;">
+    <div class="container">
+      <span class="eyebrow">Get in touch</span>
+      <h2 class="pixel" style="font-size:1.15rem; margin: 12px 0 32px;">Ask about a cartridge</h2>
+
+      <div class="contact-layout">
+        <div class="form-panel">
+          <!--
+            IMPORTANT — before this goes live:
+            Replace YOUR_FORM_ID below with a real Formspree (or similar) endpoint.
+            Sign up free at https://formspree.io, create a form, and swap the
+            action URL. Until then this form will not actually send anywhere.
+          -->
+          <form id="enquiry-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Your email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="field">
+              <label for="game">Game (if applicable)</label>
+              <input type="text" id="game" name="game" placeholder="e.g. Streets of Rage 2">
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Ask about condition, postage, or anything else..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send enquiry</button>
+            <p class="form-note">Enquiries only for now — no payment is taken through this form.</p>
+            <div id="form-status" class="form-status"></div>
+          </form>
+        </div>
+
+        <aside class="side-panel">
+          <div class="side-block">
+            <h3 class="pixel" style="font-size:0.8rem;">Response time</h3>
+            <p class="text-mute" style="font-size:0.9rem;">Enquiries are usually answered within a day or two.</p>
+          </div>
+          <div class="side-block">
+            <h3 class="pixel" style="font-size:0.8rem;">Before you ask</h3>
+            <p class="text-mute" style="font-size:0.9rem;">Every listing's condition notes are accurate — if something isn't mentioned, assume it isn't included. Happy to answer follow-up questions about wear or testing.</p>
+          </div>
+          <div class="side-block">
+            <h3 class="pixel" style="font-size:0.8rem;">Postage</h3>
+            <p class="text-mute" style="font-size:0.9rem;">Currently shipping within New Zealand only. Ask if you're overseas and keen — may be possible case by case.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>RetroCart is an independent collector project. Not affiliated with or endorsed by Sega.</p>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="saved.html">Saved list</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>
