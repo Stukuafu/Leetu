@@ -15,6 +15,7 @@
   const heroSearchForm = document.getElementById('hero-search-form');
   const heroSearchInput = document.getElementById('hero-search');
   const clearBtn = document.getElementById('clear-filters-btn');
+  const filterResetBtn = document.getElementById('catalog-filter-reset');
 
   function uniqueSorted(values) {
     return Array.from(new Set(values.filter(Boolean))).sort();
@@ -47,6 +48,19 @@
     });
   }
 
+  function hasActiveCatalogFilters() {
+    return Boolean(
+      searchInput.value.trim() ||
+      consoleSelect.value ||
+      genreSelect.value ||
+      conditionSelect.value
+    );
+  }
+
+  function updateFilterResetVisibility() {
+    filterResetBtn.hidden = !hasActiveCatalogFilters();
+  }
+
   function applyFilters() {
     const consoleVal = consoleSelect.value;
     const genreVal = genreSelect.value;
@@ -62,6 +76,7 @@
     });
 
     renderGrid(filtered);
+    updateFilterResetVisibility();
   }
 
   function renderGrid(games) {
@@ -88,11 +103,21 @@
       document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
     });
 
+    filterResetBtn.addEventListener('click', () => {
+      consoleSelect.value = '';
+      genreSelect.value = '';
+      conditionSelect.value = '';
+      searchInput.value = '';
+      heroSearchInput.value = '';
+      applyFilters();
+    });
+
     clearBtn.addEventListener('click', () => {
       consoleSelect.value = '';
       genreSelect.value = '';
       conditionSelect.value = '';
       searchInput.value = '';
+      heroSearchInput.value = '';
       applyFilters();
     });
 
@@ -108,6 +133,7 @@
       populateFilterOptions(games);
       wireEvents();
       renderGrid(games);
+      updateFilterResetVisibility();
     })
     .catch((err) => {
       grid.innerHTML =

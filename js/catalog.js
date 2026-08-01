@@ -8,6 +8,19 @@
 const CATALOG_PATH = 'data/games.csv';
 const SAVED_KEY = 'retrocart_saved_slugs';
 
+function handleCartImgError(img) {
+  img.onerror = null;
+  img.src = 'images/cart-placeholder.png';
+  const media = img.closest('.cart-media, .game-media');
+  if (media && !media.classList.contains('no-photo')) {
+    media.classList.add('no-photo');
+    const label = document.createElement('span');
+    label.className = 'no-photo-label';
+    label.textContent = 'Photo coming soon';
+    media.appendChild(label);
+  }
+}
+
 /** Fetch + parse the CSV catalog. Returns a Promise<Array<Object>>. */
 function loadCatalog() {
   return fetch(CATALOG_PATH)
@@ -131,7 +144,7 @@ function renderCartCard(game) {
     '<div class="cart-notch"></div>' +
     '<div class="cart-media">' +
     '<img src="' + img + '" alt="' + escapeHtml(game.title) + ' cartridge" loading="lazy" ' +
-    'onerror="this.onerror=null;this.src=\'images/cart-placeholder.png\';">' +
+    'onerror="handleCartImgError(this)">' +
     '<span class="condition-flag ' + conditionClass(game.condition) + '">' + game.condition + '</span>' +
     '<button class="save-toggle' + (saved ? ' saved' : '') + '" data-save-slug="' + game.slug + '" ' +
     'aria-pressed="' + saved + '" aria-label="Save ' + escapeHtml(game.title) + ' to your list">' +

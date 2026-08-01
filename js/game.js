@@ -20,7 +20,7 @@
       '<div>' +
       '<div class="game-media">' +
       '<img src="' + img + '" alt="' + escapeHtml(game.title) + ' cartridge photo" ' +
-      'onerror="this.onerror=null;this.src=\'images/cart-placeholder.png\';">' +
+      'onerror="handleCartImgError(this)">' +
       '</div>' +
       '</div>' +
       '<div>' +

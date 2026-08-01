@@ -11,6 +11,13 @@
 </head>
 <body>
 
+<div class="page-loading-overlay" id="page-loading-overlay" aria-hidden="true">
+  <div class="loading-card">
+    <span class="loading-label">Booting cartridge</span>
+    <p class="loading-title">Loading <span class="accent">RetroCart</span>…</p>
+  </div>
+</div>
+
 <header class="site-header">
   <div class="container">
     <a href="index.html" class="logo">
@@ -31,14 +38,16 @@
 
   <section class="hero">
     <div class="container hero-inner">
-      <span class="hero-eyebrow">Now loading: Mega Drive collection</span>
-      <h1>Insert cartridge<br>to <span class="accent">continue</span>.</h1>
-      <p class="lead">A hand-checked catalog of Sega Mega Drive cartridges — every cart tested, every condition noted honestly. Expanding to more retro consoles soon.</p>
-      <form class="cart-search" id="hero-search-form" role="search">
-        <label for="hero-search" class="sr-only">Search the catalog</label>
-        <input type="text" id="hero-search" placeholder="Search a title... e.g. Sonic, Streets of Rage" autocomplete="off">
-        <button type="submit" class="btn btn-primary">Search</button>
-      </form>
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Now loading: Mega Drive collection</span>
+        <h1>Insert cartridge<br>to <span class="accent">continue</span>.</h1>
+        <p class="lead">A hand-checked catalog of Sega Mega Drive cartridges — every cart tested, every condition noted honestly. Expanding to more retro consoles soon.</p>
+        <form class="cart-search" id="hero-search-form" role="search">
+          <label for="hero-search" class="sr-only">Search the catalog</label>
+          <input type="text" id="hero-search" placeholder="Search a title... e.g. Sonic, Streets of Rage" autocomplete="off">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -70,6 +79,9 @@
         <label for="filter-search" class="sr-only">Search</label>
         <input type="text" id="filter-search" placeholder="Search title...">
 
+        <button type="button" class="filter-reset" id="catalog-filter-reset" aria-label="Clear all filters" hidden>
+          <span aria-hidden="true">✕</span> Clear filters
+        </button>
         <span class="result-count" id="result-count"></span>
       </div>
 
