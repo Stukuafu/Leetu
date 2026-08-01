@@ -4,16 +4,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('page-loading-overlay');
   if (!toggle || !nav) return;
 
+  let loadingStartedAt = 0;
+  let hideTimer = null;
+
   const showLoading = () => {
     if (!overlay) return;
+    loadingStartedAt = Date.now();
     overlay.classList.add('is-visible');
     overlay.setAttribute('aria-hidden', 'false');
+    if (hideTimer) {
+      window.clearTimeout(hideTimer);
+      hideTimer = null;
+    }
   };
 
   const hideLoading = () => {
     if (!overlay) return;
-    overlay.classList.remove('is-visible');
-    overlay.setAttribute('aria-hidden', 'true');
+    const elapsed = Date.now() - loadingStartedAt;
+    const remaining = Math.max(0, 650 - elapsed);
+    if (hideTimer) {
+      window.clearTimeout(hideTimer);
+    }
+    hideTimer = window.setTimeout(() => {
+      overlay.classList.remove('is-visible');
+      overlay.setAttribute('aria-hidden', 'true');
+      hideTimer = null;
+    }, remaining);
   };
 
   toggle.addEventListener('click', () => {
